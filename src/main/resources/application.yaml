@@ -1,0 +1,13 @@
+spring:
+  application:
+    name:
+      store
+  datasource:
+    url: jdbc:mysql://localhost:3306/store?createDatabaseIfNotExist=true
+    username: zaki
+    password: zaki
+stripe:
+  url: https://www.stripe.com
+  enabled: true
+  timout: 100
+  supported-currencies: USD,EUR
