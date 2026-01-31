@@ -75,10 +75,4 @@ public class User {
     this.profile = profile;
     profile.setUser(this);
   }
-
-
-
-
-
-
 }
