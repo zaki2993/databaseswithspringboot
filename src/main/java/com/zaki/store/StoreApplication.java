@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.zaki.store.entities.User;
+import com.zaki.store.entities.Tag;
 
 @SpringBootApplication
 public class StoreApplication {
@@ -16,13 +17,15 @@ public class StoreApplication {
                 .password("password")
                 .email("email")
                 .build();
-        Address address = Address.builder()
-                .street("street")
-                .city("city")
-                .state("state")
-                .zip("zip")
-                .build();
-        user.addAddress(address);
+        // Address address = Address.builder()
+        //         .street("street")
+        //         .city("city")
+        //         .state("state")
+        //         .zip("zip")
+        //         .build();
+        Tag tag = new Tag("first_tag");
+        // user.addAddress(address);
+        user.addTag(tag);
         System.out.println(user);
 	}
 
