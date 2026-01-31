@@ -1,6 +1,7 @@
 package com.zaki.store;
 
 import com.zaki.store.entities.Address;
+import com.zaki.store.entities.Profile;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,15 +18,19 @@ public class StoreApplication {
                 .password("password")
                 .email("email")
                 .build();
+        Profile profile = Profile.builder()
+                .bio("bio")
+                .build();
         // Address address = Address.builder()
         //         .street("street")
         //         .city("city")
         //         .state("state")
         //         .zip("zip")
         //         .build();
-        Tag tag = new Tag("first_tag");
+        // Tag tag = new Tag("first_tag");
         // user.addAddress(address);
-        user.addTag(tag);
+        // user.addTag(tag);
+        user.addProfile(profile);
         System.out.println(user);
 	}
 

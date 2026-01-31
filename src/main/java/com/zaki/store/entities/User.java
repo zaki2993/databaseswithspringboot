@@ -1,5 +1,6 @@
 package com.zaki.store.entities;
 
+import java.awt.PrintJob;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,6 +41,8 @@ public class User {
   private String email;
   @Column(name = "password")
   private String password;
+  @OneToOne(mappedBy = "user")
+  private Profile profile;
   @OneToMany(mappedBy = "user")
   @Builder.Default
   private List<Address> addresses = new ArrayList(); 
@@ -66,6 +70,10 @@ public class User {
   public void addTag(Tag tag){
     tags.add(tag);
     tag.getUsers().add(this);
+  }
+  public void addProfile(Profile profile){
+    this.profile = profile;
+    profile.setUser(this);
   }
 
 
